@@ -110,7 +110,10 @@ function getList(e){
       
       var r = confirm("Are you sure?");
       if (r == true) {
-        $(this).closest(".item").remove();
+        $(this).closest(".item").slideUp(300,function(){
+          $(this).closest(".item").remove();
+        });
+        
       } 
       
     });
