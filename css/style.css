@@ -182,7 +182,7 @@ hr {
 }
 
 .controllers i {
-  font-size: 2em;
+  font-size: 1.8em;
   margin-top: 26px;
   transition: all .3s ease;
   padding: 4px 8px;
@@ -193,8 +193,6 @@ hr {
 }
 
 .controllers i:hover {
-  font-size: 2em;
-  margin-top: 26px;
   color: #888888;
   transition: all .6s ease;
   background: #dedede;
