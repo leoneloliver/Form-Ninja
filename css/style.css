@@ -261,3 +261,16 @@ i:hover {
 .obj-container{
   display: none;
 }
+.add-title{
+  color: #444;
+  font-weight: 600;
+  padding-left: 12px;
+  font-size: 0.9em;
+}
+.logo-container{
+  text-align: center;
+}
+.logo-container img{
+  width: 130px;
+  padding-top: 12px;
+}
