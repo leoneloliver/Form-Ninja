@@ -125,6 +125,17 @@ hr {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
+
+.radio label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 0px;
+  margin-left: 20px;
+  min-width: 30px;
+  min-height: 30px;
+}
+
 .box .radio label {
   display: inline-block;
   width: 100%;
@@ -134,16 +145,7 @@ hr {
   padding-right: 5px;
   padding-top: 11px;
   padding-bottom: 7px;
-}
-
-.radio label {
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  padding-left: 40px;
-  margin-left: -20px;
-  min-width: 30px;
-  min-height: 30px;
+  margin-left: 20px;
 }
 
 .item input[type="radio"] {
@@ -205,10 +207,11 @@ i:hover {
 }
 
 #radioBtn .radio {
-  margin: 2px -10px -10px;
-  width: 153px;
+  margin: 2px -13px -15px;
+  width: 128px;
   float: left;
-  text-align: center;
+  /* text-align: center; */
+  font-size: 0.8em;
 }
 
 #radioBtn .radio input[type="radio"] {
