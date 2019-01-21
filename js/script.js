@@ -100,6 +100,8 @@ function getList(e){
   result.innerHTML += "</div>";
   
   textArea.value="";
+  $('.obj-container').slideUp();
+  $('input[name="myRadio"]').prop('checked', false);
   
   document.querySelectorAll('.item').length;
   
@@ -139,6 +141,13 @@ function reOrder(){
     });
 }
 
+
+$('input[name="myRadio"]').on('click', function(){
+    if ( $(this).is(':checked') ) {
+        $('.obj-container').slideDown();
+    } 
+    
+});
 
 
 
