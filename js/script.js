@@ -15,17 +15,15 @@ function getList(e){
     }
   }
   
-
-  
   var arrayFromTextArea = textArea.value.split(String.fromCharCode(10));
   var tags = "";
   
   //   validation
   if(textArea.value==""){
-     var msgDisplay = "You should type or paste into the textarea box!";
-     error.innerHTML = msgDisplay;
-     error.classList.add("show");
-     e.stopPropagation();
+   var msgDisplay = "You should type or paste into the textarea box!";
+   error.innerHTML = msgDisplay;
+   error.classList.add("show");
+   e.stopPropagation();
      
   }else if(arrayFromTextArea.length < 3 && typeQuestion!="textarea"){
     var msgDisplay = "You should type at least 3 lines!";
@@ -45,6 +43,9 @@ function getList(e){
   }
   if(typeQuestion=="dropbox"){
     var optns = "<option value=\"\">Select an option:</option>";
+  }else{
+    var optns = "";
+    var optns2 = "";
   }
   
   for(var i = 0; i < arrayFromTextArea.length; i++){
@@ -79,6 +80,12 @@ function getList(e){
 
        }else if(typeQuestion=="dropbox"){
         optns += "<option value="+Nl+">"+arrayFromTextArea[i]+"</option>";
+       }else if(typeQuestion=="singlerank"){
+          optns += "<th style=\"width: 10%\" class=\"text-center\">"+arrayFromTextArea[i]+"</th>";
+          optns2 += "<td data-th=\""+arrayFromTextArea[i]+"\">";
+          optns2 += "<div class=\"radio radiorank text-center\">";
+          optns2 += "<input id=\"QAns"+Nl+"\" type=\"radio\" name=\"QAns\" value="+Nl+" data-skip=\"0\" autocomplete=\"off\"><label for=\"QAns"+Nl+"\"></label></div></td>";
+
        }
      }
            
@@ -89,12 +96,26 @@ function getList(e){
 
 
   if(typeQuestion=="dropbox"){
-      tags += "<div class=\"col-xs-12\"><div class=\"box\"><div class=\"dropdown\">";
-      tags += "<select id=\"QAns1\" name=\"QAns1\" class=\"form-control selectpicker bs-select-hidden\" data-skip=\"0\" autocomplete=\"off\">";
-      tags +=  optns;
-      tags += "</select>";
-      tags += "</div></div></div>";
+    tags += "<div class=\"col-xs-12\"><div class=\"box\"><div class=\"dropdown\">";
+    tags += "<select id=\"QAns1\" name=\"QAns1\" class=\"form-control selectpicker bs-select-hidden\" data-skip=\"0\" autocomplete=\"off\">";
+    tags +=  optns;
+    tags += "</select>";
+    tags += "</div></div></div>";
   }
+
+  if(typeQuestion=="singlerank"){
+    tags += "<div class=\"row\"><div class=\"col-xxs-12\">";
+    tags += "<div class=\"table-responsive-split\">";
+    tags += "<table class=\"table table-primary table-bordered table-striped table-hover\">";
+    tags += "<thead><tr>";
+    tags +=  optns;
+    tags += "</tr></thead><tbody><tr>";
+    tags += optns2;
+    tags += "</tr>";
+    tags += "</tbody></table></div>";
+    tags += "</div></div>";
+  }
+  
 
   result.innerHTML += "<div class=\"item\"><div>"+tags+"<div class=\"controllers\"><a href=\"#\" class=\"reorder-up\"><i class=\"fa fa-arrow-circle-up\" aria-hidden=\"true\"></i></a> <a href=\"#\" class=\"reorder-down\"><i class=\"fa fa-arrow-circle-down\" aria-hidden=\"true\"></i></a> <a class=\"delete\"><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></a>  </div></div>";
   result.innerHTML += "</div>";
@@ -126,32 +147,50 @@ function getList(e){
 function reOrder(){
   
   $(".reorder-up").click(function(){
-      var $current = $(this).closest('.item')
-      var $previous = $current.prev('.item');
-      if($previous.length !== 0){
-        $current.insertBefore($previous);
-      }
-      return false;
-    });
+    var $current = $(this).closest('.item')
+    var $previous = $current.prev('.item');
+    if($previous.length !== 0){
+      $current.insertBefore($previous);
+    }
+    return false;
+  });
 
-    $(".reorder-down").click(function(){
-      var $current = $(this).closest('.item')
-      var $next = $current.next('.item');
-      if($next.length !== 0){
-        $current.insertAfter($next);
-      }
-      return false;
-    });
+  $(".reorder-down").click(function(){
+    var $current = $(this).closest('.item')
+    var $next = $current.next('.item');
+    if($next.length !== 0){
+      $current.insertAfter($next);
+    }
+    return false;
+  });
 }
 
 
 $('input[name="myRadio"]').on('click', function(){
-    if ( $(this).is(':checked') ) {
-        $('.obj-container').slideDown();
-    } 
-    
+  if ( $(this).is(':checked') ) {
+    $('.obj-container').slideDown();
+  }  
 });
 
+
+// <div class=\"row\"><div class=\"col-xxs-12\">
+// <div class=\"table-responsive-split\">
+// <table class=\"table table-primary table-bordered table-striped table-hover\">
+// <thead><tr>
+
+// <th style=\"width: 20%\" class=\"text-center\">1 - Very Dissatisfied</th>
+
+
+// </tr></thead><tbody>
+// <tr>
+
+// <td data-th=\"1 - Very Dissatisfied\">
+// <div class=\"radio radiorank\">
+// <input id=\"QAns1\" type=\"radio\" name=\"QAns\" value=\"1\" data-skip=\"0\" autocomplete=\"off\"><label for=\"QAns1\"></label></div></td>
+
+// </tr>
+// </tbody></table></div>
+// </div></div>
 
 
 

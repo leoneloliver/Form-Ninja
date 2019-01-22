@@ -274,3 +274,19 @@ i:hover {
   width: 130px;
   padding-top: 12px;
 }
+
+.radiorank label {  
+  padding-left: 0px;
+  margin-left: 0;
+  min-width: 0;
+  width: 10px;
+}
+
+/*.top-bar {
+  width: auto; 
+  margin-bottom: 15px;
+  margin-top: 80px;
+  background: #fff;
+  box-shadow: 1px 3px 70px -18px #656565;
+  position: fixed;
+}*/
