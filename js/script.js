@@ -169,6 +169,7 @@ function reOrder(){
 $('input[name="myRadio"]').on('click', function(){
   if ( $(this).is(':checked') ) {
     $('.obj-container').slideDown();
+    textArea.value="Master Survey header!\nWhat is Elvis Presley's middle name?\nAaron\nDuritz\nFranklin\nScott";
   }  
 });
 
